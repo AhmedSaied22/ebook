@@ -18,7 +18,7 @@ class SlidingText extends StatelessWidget {
             position: slidigAnimation,
             child: const Text(
               'Reading is more than a passion.',
-              style: TextStyle(fontSize: 10),
+              style: TextStyle(fontSize: 12),
               textAlign: TextAlign.center,
             ),
           );
