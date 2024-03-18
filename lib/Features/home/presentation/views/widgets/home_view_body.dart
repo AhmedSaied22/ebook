@@ -1,3 +1,4 @@
+import 'package:e_book/Features/home/presentation/views/widgets/bestseller_list_item.dart';
 import 'package:e_book/Features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:e_book/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:e_book/core/utils/styles.dart';
@@ -18,8 +19,10 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(height: 40),
           Text(
             'Best Seller',
-            style: Styles.titleMedium,
+            style: Styles.textStyle18,
           ),
+          SizedBox(height: 24),
+          BestSellerListViewItem(),
         ],
       ),
     );
