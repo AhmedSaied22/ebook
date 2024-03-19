@@ -1,4 +1,4 @@
-import 'package:e_book/Features/home/presentation/views/widgets/featured_list_item.dart';
+import 'package:e_book/Features/home/presentation/views/widgets/custom_book_poster.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -13,7 +13,7 @@ class FeaturedBooksListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: 16),
-            child: FeaturedListViewItem(),
+            child: CustomBookPoster(),
           );
         },
       ),
