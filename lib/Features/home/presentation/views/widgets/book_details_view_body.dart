@@ -2,6 +2,7 @@ import 'package:e_book/Features/home/presentation/views/widgets/book_price_previ
 import 'package:e_book/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:e_book/Features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:e_book/Features/home/presentation/views/widgets/custom_book_poster.dart';
+import 'package:e_book/Features/home/presentation/views/widgets/similar_book_list_view.dart';
 import 'package:e_book/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,7 @@ class BookDetailsViewBody extends StatelessWidget {
       child: Column(
         children: [
           const CustomBookDetailsAppBar(),
-          const SizedBox(height: 8),
-          SizedBox(width: width * 0.44, child: const CustomBookPoster()),
+          SizedBox(width: width * 0.43, child: const CustomBookPoster()),
           const SizedBox(height: 40),
           const Text('The Jungle Book', style: Styles.textStyle30),
           const SizedBox(height: 4),
@@ -34,6 +34,16 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           const BookPricePreviewButton(),
+          const SizedBox(height: 45),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const SimilarBookListView(),
         ],
       ),
     );
