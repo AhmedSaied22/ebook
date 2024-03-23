@@ -19,7 +19,9 @@ class BookListViewItem extends StatelessWidget {
         height: 135,
         child: Row(
           children: [
-            const CustomBookPoster(),
+            const CustomBookPoster(
+              imageUrl: kImageDefault,
+            ),
             const SizedBox(width: 30),
             Expanded(
               child: Column(

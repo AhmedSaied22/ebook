@@ -1,4 +1,5 @@
 import 'package:e_book/Features/home/presentation/views/widgets/custom_book_poster.dart';
+import 'package:e_book/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class SimilarBookListView extends StatelessWidget {
@@ -13,7 +14,9 @@ class SimilarBookListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: 10),
-            child: CustomBookPoster(),
+            child: CustomBookPoster(
+              imageUrl: kImageDefault,
+            ),
           );
         },
       ),

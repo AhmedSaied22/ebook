@@ -1,6 +1,7 @@
 import 'package:e_book/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:e_book/Features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:e_book/Features/home/presentation/views/widgets/custom_book_poster.dart';
+import 'package:e_book/core/utils/constants.dart';
 import 'package:e_book/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,11 @@ class BookDetailsSection extends StatelessWidget {
     return Column(
       children: [
         const CustomBookDetailsAppBar(),
-        SizedBox(width: width * 0.43, child: const CustomBookPoster()),
+        SizedBox(
+            width: width * 0.43,
+            child: const CustomBookPoster(
+              imageUrl: kImageDefault,
+            )),
         const SizedBox(height: 40),
         const Text('The Jungle Book', style: Styles.textStyle30),
         const SizedBox(height: 4),
