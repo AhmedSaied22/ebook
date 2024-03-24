@@ -1,6 +1,7 @@
 import 'package:e_book/Features/home/data/repository/home_repo_imple.dart';
 import 'package:e_book/Features/home/presentation/manger/featured%20books%20cubit/featured_books_cubit.dart';
 import 'package:e_book/Features/home/presentation/manger/newest%20books%20cubit/newest_books_cubit.dart';
+import 'package:e_book/bloc_observer.dart';
 import 'package:e_book/core/utils/app_router.dart';
 import 'package:e_book/core/utils/constants.dart';
 import 'package:e_book/core/utils/service_locator.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocObserver();
   setupServerLocator();
   runApp(const Ebook());
 }
@@ -26,7 +28,8 @@ class Ebook extends StatelessWidget {
                   ..fetchFeaturedBooks()),
         BlocProvider(
             create: (context) =>
-                NewestBooksCubit(getIt.get<HomeRepoImplementation>())),
+                NewestBooksCubit(getIt.get<HomeRepoImplementation>())
+                  ..fetchNewestBooks()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
