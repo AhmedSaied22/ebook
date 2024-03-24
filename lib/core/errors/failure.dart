@@ -27,13 +27,17 @@ class ServerFailure extends Failure {
         );
       case DioExceptionType.sendTimeout:
         return ServerFailure('Send timeout in connection with API server');
-      default:
+
+      case DioExceptionType.unknown:
         if (dioException.message!.contains('SocketException')) {
           return ServerFailure('No internet Connection');
         }
-        return ServerFailure('UnExpected Error, Please try again later');
+        return ServerFailure('Something went wrong, Please try later!');
+      default:
+        return ServerFailure('Something went wrong, Please try later!');
     }
   }
+
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(response["error"]["message"]);
