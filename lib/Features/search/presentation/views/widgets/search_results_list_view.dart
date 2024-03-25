@@ -1,4 +1,3 @@
-import 'package:e_book/Features/home/presentation/views/widgets/book_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatelessWidget {
