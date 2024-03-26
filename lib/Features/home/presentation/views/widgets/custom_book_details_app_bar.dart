@@ -1,3 +1,4 @@
+import 'package:e_book/core/utils/function/launch_url.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,7 +27,9 @@ class CustomBookDetailsAppBar extends StatelessWidget {
                 Icons.shopping_cart_outlined,
                 size: 24,
               ),
-              onPressed: () {},
+              onPressed: () {
+                launchCustomUrl(context, 'https://books.google.com/?hl=ar');
+              },
             ),
           ],
         ),

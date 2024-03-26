@@ -1,8 +1,10 @@
 import 'package:e_book/Features/home/data/models/book_model/book_model.dart';
-import 'package:e_book/Features/home/data/repository/home_repo.dart';
+import 'package:e_book/Features/home/data/repository/home_repo_imple.dart';
 import 'package:e_book/Features/home/presentation/manger/relevance%20books%20cubit/relevance_books_cubit.dart';
 import 'package:e_book/Features/home/presentation/views/book_details_view.dart';
 import 'package:e_book/Features/home/presentation/views/home_view.dart';
+import 'package:e_book/Features/search/data/repository/search_repo_imple.dart';
+import 'package:e_book/Features/search/presentation/manger/search%20books%20cubit/search_books_cubit.dart';
 import 'package:e_book/Features/search/presentation/views/search_view.dart';
 import 'package:e_book/Features/splash/presentation/views/splash_view.dart';
 import 'package:e_book/core/utils/service_locator.dart';
@@ -27,7 +29,8 @@ abstract class AppRouter {
         path: kBookDetailsView,
         builder: (context, state) => BlocProvider(
           // instead of put this cubit on main page, we put it in the page itself.
-          create: (context) => RelevanceBooksCubit(getIt<HomeRepo>()),
+          create: (context) =>
+              RelevanceBooksCubit(getIt.get<HomeRepoImplementation>()),
           child: BookDetailsView(
             bookModel: state.extra as BookModel,
           ),
@@ -35,7 +38,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              SearchBooksCubit(getIt.get<SearchRepoImplementation>()),
+          child: const SearchView(),
+        ),
       ),
     ],
   );

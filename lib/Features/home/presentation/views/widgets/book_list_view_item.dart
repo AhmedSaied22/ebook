@@ -23,6 +23,7 @@ class BookListViewItem extends StatelessWidget {
             CustomBookPoster(
               imageUrl:
                   bookModel.volumeInfo?.imageLinks?.thumbnail ?? kImageDefault,
+              aspectRatio: 0.65,
             ),
             const SizedBox(width: 30),
             Expanded(

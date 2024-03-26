@@ -15,15 +15,16 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   @override
   void initState() {
     BlocProvider.of<RelevanceBooksCubit>(context).fetchRelevanceBooks(
-        category: widget.bookModel.volumeInfo!.categories![0]);
-
+        category: widget.bookModel.volumeInfo!.categories?[0] ?? 'general');
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: BookDetailsViewBody(),
+    return Scaffold(
+      body: BookDetailsViewBody(
+        book: widget.bookModel,
+      ),
     );
   }
 }
